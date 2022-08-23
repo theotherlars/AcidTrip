@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6254628246482415149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6254628246482415148}
+  - component: {fileID: 6254628246482415147}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6254628246482415148
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6254628246482415149}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6254628246482415147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6254628246482415149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09da6f8e9690e704ea7be594504dad33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trippiness: 0
+  bendController: {fileID: 0}
+  MushRooms:
+  - {fileID: 5803065545520483877, guid: 9e57bd8cc03b08140aa7aa3a9659b735, type: 3}
+  - {fileID: 1023413033117116351, guid: 64c3c4ab2b5741f44807faba3b8c8c7c, type: 3}
+  - {fileID: 7254263365597435759, guid: 2d0759d44fe000c49a6395c48136793f, type: 3}
+  - {fileID: 8865855807188182034, guid: f44b0e489d537f84e83e52ea5eaf71b9, type: 3}
+  - {fileID: 2066379190284112393, guid: cce4ce58b0310fd49969d0c9fb1663ac, type: 3}
+  timeBetweenItemSpawns: 1.5
+  transitionTime: 1
+  tripStates:
+  - StateName: State0
+    Curvature: 30
+    HorizonWaveFrequency: 0
+    MovementSpeed: 3
+  - StateName: State1
+    Curvature: 75
+    HorizonWaveFrequency: 2
+    MovementSpeed: 4
+  - StateName: State2
+    Curvature: -75
+    HorizonWaveFrequency: 3
+    MovementSpeed: 5
+  - StateName: State3
+    Curvature: 150
+    HorizonWaveFrequency: 4
+    MovementSpeed: 6
+  - StateName: State4
+    Curvature: 100
+    HorizonWaveFrequency: 10
+    MovementSpeed: 7
+  - StateName: State5
+    Curvature: -100
+    HorizonWaveFrequency: 10
+    MovementSpeed: 7
+  - StateName: State6
+    Curvature: 200
+    HorizonWaveFrequency: 12
+    MovementSpeed: 8
