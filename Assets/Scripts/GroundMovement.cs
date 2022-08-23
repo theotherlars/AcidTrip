@@ -6,25 +6,19 @@ public class GroundMovement : MonoBehaviour
 {
     public float movementSpeed;
     public float offsetBeforeMoved;
-    public Transform ground1;
-    public Transform ground2;
+    public List<Transform> groundPieces = new List<Transform>();
 
-    void Start(){
-        
+    void Update(){
+        UpdateGround();
     }
 
-    // Update is called once per frame
-    void Update(){
-        ground1.position += new Vector3(2 * movementSpeed * Time.deltaTime, 0, 0);
-        ground2.position += new Vector3(2 * movementSpeed * Time.deltaTime, 0, 0);
 
-        if(ground1.position.x >= offsetBeforeMoved){
-            ground1.position -= new Vector3(40,0,0);
+    private void UpdateGround(){
+        foreach(Transform ground in groundPieces){
+            ground.position += new Vector3(2 * movementSpeed * Time.deltaTime, 0, 0);
+            if(ground.position.x >= offsetBeforeMoved){
+                ground.position -= new Vector3(20 * groundPieces.Count, 0, 0);
+            }
         }
-        if(ground2.position.x >= offsetBeforeMoved){
-            ground2.position -= new Vector3(40,0,0);
-        }
-        
-        
     }
 }

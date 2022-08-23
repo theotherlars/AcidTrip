@@ -34,30 +34,29 @@ public class GameManager : MonoBehaviour
     }
 
     private void SetTrippiness(float newValue){
-        if(newValue <= 0.2){
+        if(newValue <= 0.1){
             currentTripState = tripStates[0];
-            // bendController.Curvature = Mathf.Lerp(bendController.Curvature, newValue * 120, Time.deltaTime);
-            // bendController.HorizonWaveFrequency = Mathf.Lerp(bendController.HorizonWaveFrequency, newValue * 20, Time.deltaTime);
+        }
+        else if(newValue > 0.1 && newValue < 0.2){
+            currentTripState = tripStates[1];
         }
         else if(newValue > 0.2 && newValue <= 0.5){
-            currentTripState = tripStates[1];
-            // bendController.Curvature = Mathf.Lerp(bendController.Curvature, newValue * 120 * -1, Time.deltaTime);
-            // bendController.HorizonWaveFrequency = Mathf.Lerp(bendController.HorizonWaveFrequency, newValue * 70, Time.deltaTime);
-        }
-        else if(newValue > 0.5 && newValue <= 0.7){
             currentTripState = tripStates[2];
-            // bendController.Curvature = Mathf.Lerp(bendController.Curvature, newValue * 230 * -1, Time.deltaTime);
-            // bendController.HorizonWaveFrequency = Mathf.Lerp(bendController.HorizonWaveFrequency, newValue * 100, Time.deltaTime);
         }
-        else if(newValue > 0.5 && newValue <= 0.7){
+        else if(newValue > 0.5 && newValue <= 0.6){
             currentTripState = tripStates[3];
-            // bendController.Curvature = Mathf.Lerp(bendController.Curvature, newValue * 230, Time.deltaTime);
-            // bendController.HorizonWaveFrequency = Mathf.Lerp(bendController.HorizonWaveFrequency, newValue * -1, Time.deltaTime);
         }
-        else if(newValue > 0.7 && newValue <= 1){
+        else if(newValue > 0.6 && newValue <= 0.7){
             currentTripState = tripStates[4];
-            // bendController.Curvature = Mathf.Lerp(bendController.Curvature, newValue * -400, Time.deltaTime);
-            // bendController.HorizonWaveFrequency = Mathf.Lerp(bendController.HorizonWaveFrequency, newValue * 100, Time.deltaTime);
+        }
+        else if(newValue > 0.7 && newValue <= 0.8){
+            currentTripState = tripStates[5];
+        }
+        else if(newValue > 0.8 && newValue <= 0.9){
+            currentTripState = tripStates[6];
+        }
+        else if(newValue > 0.9 && newValue <= 1){
+            currentTripState = tripStates[7];
         }
     }
 
