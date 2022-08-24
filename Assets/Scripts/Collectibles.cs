@@ -7,28 +7,22 @@ using UnityEngine.UI;
 public class Collectibles : MonoBehaviour
 {
     public static event Action OnCollected;
-
-    public Canvas canvas;
-
+    ScoreManager scoreManager;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-       
+    void Start(){
+       scoreManager = FindObjectOfType<Canvas>().GetComponent<ScoreManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        transform.localRotation = Quaternion.Euler(90f, Time.time * 100f, 0);
+    void Update(){
+        // transform.rotation = Quaternion.Euler(transform.rotation.x , transform.rotation.y + Time.time * 100f, transform.rotation.z);
+        transform.eulerAngles = new Vector3 (transform.eulerAngles.x , transform.rotation.y + Time.time * 100f, transform.eulerAngles.z);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
+        if (other.CompareTag("Player")){
             OnCollected?.Invoke();
-            canvas.GetComponent<ScoreManager>().AddPoint();
+            scoreManager.AddPoint();
             Destroy(gameObject);
         }
     }

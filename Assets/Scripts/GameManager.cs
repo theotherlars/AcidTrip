@@ -5,57 +5,98 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] [Range(0,1)] float trippiness = 0;
-    [SerializeField] BendControllerRadial bendController;
     [SerializeField] List<GameObject> MushRooms = new List<GameObject>(); 
-    [SerializeField] float timeBetweenItemSpawns = 1.5f;
+    [SerializeField] float timeBetweenObstacleSpawns = 1.5f;
+    [SerializeField] float timeBetweenCollectableSpawns = 3f;
     [SerializeField] float transitionTime = 2;
     [SerializeField] List<TripState> tripStates = new List<TripState>();
     TripState currentTripState;
-    float timeSinceLastItemSpawn;
+    TripState tripStateLastFrame = null;
+    float timeSinceLastObstacleSpawn;
+    float timeSinceLastCollectableSpawn;
+    [SerializeField] float timeBetweenScenarySpawn;
+    float timeSinceLastScenarySpawn;
     GroundMovement groundMovement;
+    BendControllerRadial bendController;
+    ScoreManager scoreManager;
 
-    private void Awake() {
+    private void Start() {
         bendController = FindObjectOfType<BendControllerRadial>();
         groundMovement = FindObjectOfType<GroundMovement>();
+        scoreManager = FindObjectOfType<Canvas>().GetComponent<ScoreManager>();
         currentTripState = tripStates[0];
-
         bendController.HorizonWaves = true;
     }
 
     private void Update() {
+        trippiness = (float)scoreManager.score / 100;
         SetTrippiness(trippiness);
         UpdateTripValues();
 
-        if(timeSinceLastItemSpawn > timeBetweenItemSpawns){
-            timeSinceLastItemSpawn = 0;
-            SpawnItems();
+        if(timeSinceLastObstacleSpawn > timeBetweenObstacleSpawns){
+            timeSinceLastObstacleSpawn = 0;
+            if(Random.value > 0.5f){
+                SpawnObstacles();
+            }
+            else{
+                SpawnObstacles();
+                SpawnObstacles();
+            }
         }
-        timeSinceLastItemSpawn += Time.deltaTime;
+        if(timeSinceLastCollectableSpawn > timeBetweenCollectableSpawns){
+            timeSinceLastCollectableSpawn = 0;
+            SpawnCollectables();
+        }
+
+        if(timeSinceLastScenarySpawn > timeBetweenScenarySpawn){
+            timeSinceLastScenarySpawn = 0;
+            SpawnScenary();
+        }
+
+        timeSinceLastCollectableSpawn += Time.deltaTime;
+        timeSinceLastObstacleSpawn += Time.deltaTime;
+        timeSinceLastScenarySpawn += Time.deltaTime;
+
+        // tripStateLastFrame = currentTripState;
     }
 
-    private void SetTrippiness(float newValue){
-        if(newValue <= 0.1){
+    private void SpawnScenary(){
+        int randomIndex = Random.Range(0,currentTripState.Obstacles.Count);
+        Vector3 pos = new Vector3(Random.Range(-50,-60),0f,0);
+        if(Random.value > 0.5f){
+            pos.z = Random.Range(-10, -15);
+        }
+        else{
+            pos.z = Random.Range(10, 15);
+        }
+        Instantiate(currentTripState.Obstacles[randomIndex],pos,Quaternion.identity);
+    }
+
+    private void SetTrippiness(float newTrippiness){
+        
+
+        if(newTrippiness <= 0.1){
             currentTripState = tripStates[0];
         }
-        else if(newValue > 0.1 && newValue < 0.2){
+        else if(newTrippiness > 0.1 && newTrippiness < 0.2){
             currentTripState = tripStates[1];
         }
-        else if(newValue > 0.2 && newValue <= 0.5){
+        else if(newTrippiness > 0.2 && newTrippiness <= 0.5){
             currentTripState = tripStates[2];
         }
-        else if(newValue > 0.5 && newValue <= 0.6){
+        else if(newTrippiness > 0.5 && newTrippiness <= 0.6){
             currentTripState = tripStates[3];
         }
-        else if(newValue > 0.6 && newValue <= 0.7){
+        else if(newTrippiness > 0.6 && newTrippiness <= 0.7){
             currentTripState = tripStates[4];
         }
-        else if(newValue > 0.7 && newValue <= 0.8){
+        else if(newTrippiness > 0.7 && newTrippiness <= 0.8){
             currentTripState = tripStates[5];
         }
-        else if(newValue > 0.8 && newValue <= 0.9){
+        else if(newTrippiness > 0.8 && newTrippiness <= 0.9){
             currentTripState = tripStates[6];
         }
-        else if(newValue > 0.9 && newValue <= 1){
+        else if(newTrippiness > 0.9 && newTrippiness <= 1){
             currentTripState = tripStates[7];
         }
     }
@@ -64,19 +105,21 @@ public class GameManager : MonoBehaviour
         bendController.Curvature = Mathf.Lerp(bendController.Curvature, currentTripState.Curvature, Time.deltaTime * transitionTime);
         bendController.HorizonWaveFrequency = Mathf.Lerp(bendController.HorizonWaveFrequency, currentTripState.HorizonWaveFrequency, Time.deltaTime * transitionTime);
         groundMovement.movementSpeed = currentTripState.MovementSpeed;
+        timeBetweenCollectableSpawns = currentTripState.TimeBetweenCollectableSpawns;
+        timeBetweenObstacleSpawns = currentTripState.TimeBetweenObstacleSpawns;
+        RenderSettings.skybox = currentTripState.SkyboxMaterial;
         
     }
 
-    private void SpawnItems(){
-        int randomIndex = Random.Range(0,MushRooms.Count);
-        Vector3 pos = new Vector3(Random.Range(-20,-35),-0.2f,0);
-        if(Random.value > 0.5){
-            pos.z = -10;            
-        }
-        else{
-            pos.z = 10;
-        }
-        Instantiate(MushRooms[randomIndex],pos,Quaternion.identity);
+    private void SpawnCollectables(){
+        Vector3 pos = new Vector3(Random.Range(-20,-35),0.6f,Random.Range(-6,6));
+        Instantiate(currentTripState.Collectable,pos,Quaternion.identity);
+    }
+
+    private void SpawnObstacles(){
+        int randomIndex = Random.Range(0,currentTripState.Obstacles.Count);
+        Vector3 pos = new Vector3(Random.Range(-50,-60),0f,Random.Range(-6,6));
+        Instantiate(currentTripState.Obstacles[randomIndex],pos,Quaternion.identity);
     }
 }
 
@@ -86,11 +129,21 @@ public class TripState{
     public float Curvature;
     public float HorizonWaveFrequency;
     public float MovementSpeed;
+    public float TimeBetweenCollectableSpawns;
+    public float TimeBetweenObstacleSpawns;
+    public GameObject Collectable;
+    public List<GameObject> Obstacles = new List<GameObject>();
+    public Material SkyboxMaterial;
 
-    public TripState(string _StateName, float _Curvature, float _HorizonWaveFrequency, float _MovementSpeed){
+    public TripState(string _StateName, float _Curvature, float _HorizonWaveFrequency, float _MovementSpeed, GameObject _Collectable, List<GameObject> _Obstacles,Material _SkyboxMaterial, float _TimeBetweenCollectableSpawns = 3.0f,float _TimeBetweenObstacleSpawns = 1.5f){
         this.StateName = _StateName;
         this.Curvature = _Curvature;
         this.HorizonWaveFrequency = _HorizonWaveFrequency;
         this.MovementSpeed = _MovementSpeed;
+        this.TimeBetweenCollectableSpawns = _TimeBetweenCollectableSpawns;
+        this.TimeBetweenObstacleSpawns = _TimeBetweenObstacleSpawns;
+        this.Collectable = _Collectable;
+        this.Obstacles = _Obstacles;
+        this.SkyboxMaterial = _SkyboxMaterial;
     }
 }

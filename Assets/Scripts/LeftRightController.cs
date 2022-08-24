@@ -27,7 +27,8 @@ public class LeftRightController : MonoBehaviour
     {
         float h = Input.GetAxisRaw("Horizontal");
         
-        m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_Rigidbody.velocity.y, h * Speed) ;
+        m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_Rigidbody.velocity.y, h * Speed);
+        // rb.position = new Vector3(0,0, rb.position.z + h * Speed * Time.deltaTime);
 
         Jump();
     }

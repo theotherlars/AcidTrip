@@ -45,45 +45,176 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trippiness: 0
-  bendController: {fileID: 0}
   MushRooms:
-  - {fileID: 5803065545520483877, guid: 9e57bd8cc03b08140aa7aa3a9659b735, type: 3}
-  - {fileID: 1023413033117116351, guid: 64c3c4ab2b5741f44807faba3b8c8c7c, type: 3}
-  - {fileID: 7254263365597435759, guid: 2d0759d44fe000c49a6395c48136793f, type: 3}
-  - {fileID: 8865855807188182034, guid: f44b0e489d537f84e83e52ea5eaf71b9, type: 3}
-  - {fileID: 2066379190284112393, guid: cce4ce58b0310fd49969d0c9fb1663ac, type: 3}
-  timeBetweenItemSpawns: 1.5
+  - {fileID: 843783528766330773, guid: ed4eb81097a29e84ca8f9754742dae60, type: 3}
+  - {fileID: 4096549064635288152, guid: 62366f8cdb7bdd0428b3e4923f518fa6, type: 3}
+  - {fileID: 2741778493902628433, guid: 43c93898352b15549bd7b8b8b9ebafe2, type: 3}
+  - {fileID: 1510862533418366915, guid: 948f1a47f084fb04dbb34525640cd1b5, type: 3}
+  - {fileID: 910144729958065329, guid: 00601132bb84485408c0e4692bdb76e2, type: 3}
+  - {fileID: 4951570777349927826, guid: 86c7447b418abf742a05aaa2dbec3a0f, type: 3}
+  - {fileID: 5909878535249840774, guid: a6cb058054f4e104f859fdd82218245b, type: 3}
+  - {fileID: 1046677138985379208, guid: 077fa51ed12c0d74ba24e27289dd0258, type: 3}
+  - {fileID: 833750089512020418, guid: 5241265e30c35da4f925bb6297c4dee5, type: 3}
+  - {fileID: 7747448189475961003, guid: 11526f59edbb6b047b28334b7748b0ac, type: 3}
+  - {fileID: 6162600390927559845, guid: d307b0e8bdc0ada409820ef69a5f0f4c, type: 3}
+  - {fileID: 4706648538848286119, guid: e634cdb374a40f24bb7cbafea8c7be03, type: 3}
+  - {fileID: 7995404702411823366, guid: 83559a9e96c377c4db5405c651ff992b, type: 3}
+  - {fileID: 4860588922505850286, guid: c5b67ef2b62922346b76ccccaef65730, type: 3}
+  - {fileID: 8920465474144786315, guid: a0673dbfe0e78584ab501f0b7513baba, type: 3}
+  timeBetweenObstacleSpawns: 1.5
+  timeBetweenCollectableSpawns: 3
   transitionTime: 1
   tripStates:
   - StateName: State0
     Curvature: 30
     HorizonWaveFrequency: 0
-    MovementSpeed: 3
+    MovementSpeed: 4
+    TimeBetweenCollectableSpawns: 3
+    TimeBetweenObstacleSpawns: 2
+    Collectable: {fileID: 7245491266388409435, guid: 3075708f352e0f943a6761e9cdfe51b3, type: 3}
+    Obstacles:
+    - {fileID: 843783528766330773, guid: ed4eb81097a29e84ca8f9754742dae60, type: 3}
+    - {fileID: 4096549064635288152, guid: 62366f8cdb7bdd0428b3e4923f518fa6, type: 3}
+    - {fileID: 2741778493902628433, guid: 43c93898352b15549bd7b8b8b9ebafe2, type: 3}
+    - {fileID: 1510862533418366915, guid: 948f1a47f084fb04dbb34525640cd1b5, type: 3}
+    - {fileID: 910144729958065329, guid: 00601132bb84485408c0e4692bdb76e2, type: 3}
+    SkyboxMaterial: {fileID: 2100000, guid: 85b102caf2a5e0a4f8f9e38b3acc2b7d, type: 2}
   - StateName: State1
     Curvature: 75
     HorizonWaveFrequency: 2
-    MovementSpeed: 4
+    MovementSpeed: 5
+    TimeBetweenCollectableSpawns: 3
+    TimeBetweenObstacleSpawns: 1.9
+    Collectable: {fileID: 7245491266388409435, guid: 3075708f352e0f943a6761e9cdfe51b3, type: 3}
+    Obstacles:
+    - {fileID: 4951570777349927826, guid: 86c7447b418abf742a05aaa2dbec3a0f, type: 3}
+    - {fileID: 5909878535249840774, guid: a6cb058054f4e104f859fdd82218245b, type: 3}
+    - {fileID: 1046677138985379208, guid: 077fa51ed12c0d74ba24e27289dd0258, type: 3}
+    - {fileID: 833750089512020418, guid: 5241265e30c35da4f925bb6297c4dee5, type: 3}
+    - {fileID: 7747448189475961003, guid: 11526f59edbb6b047b28334b7748b0ac, type: 3}
+    SkyboxMaterial: {fileID: 2100000, guid: 0e0052104351b7c46965e2c810d1df46, type: 2}
   - StateName: State2
     Curvature: -75
     HorizonWaveFrequency: 3
-    MovementSpeed: 5
+    MovementSpeed: 6
+    TimeBetweenCollectableSpawns: 3
+    TimeBetweenObstacleSpawns: 1.7
+    Collectable: {fileID: 7245491266388409435, guid: 3075708f352e0f943a6761e9cdfe51b3, type: 3}
+    Obstacles:
+    - {fileID: 6162600390927559845, guid: d307b0e8bdc0ada409820ef69a5f0f4c, type: 3}
+    - {fileID: 4706648538848286119, guid: e634cdb374a40f24bb7cbafea8c7be03, type: 3}
+    - {fileID: 7995404702411823366, guid: 83559a9e96c377c4db5405c651ff992b, type: 3}
+    - {fileID: 4860588922505850286, guid: c5b67ef2b62922346b76ccccaef65730, type: 3}
+    - {fileID: 8920465474144786315, guid: a0673dbfe0e78584ab501f0b7513baba, type: 3}
+    SkyboxMaterial: {fileID: 2100000, guid: 5f0805d37aba4bb44a30eeb5ee2e52c7, type: 2}
   - StateName: State3
     Curvature: 150
     HorizonWaveFrequency: 4
-    MovementSpeed: 6
+    MovementSpeed: 7
+    TimeBetweenCollectableSpawns: 3
+    TimeBetweenObstacleSpawns: 1.6
+    Collectable: {fileID: 7245491266388409435, guid: 3075708f352e0f943a6761e9cdfe51b3, type: 3}
+    Obstacles:
+    - {fileID: 4951570777349927826, guid: 86c7447b418abf742a05aaa2dbec3a0f, type: 3}
+    - {fileID: 5909878535249840774, guid: a6cb058054f4e104f859fdd82218245b, type: 3}
+    - {fileID: 1046677138985379208, guid: 077fa51ed12c0d74ba24e27289dd0258, type: 3}
+    - {fileID: 833750089512020418, guid: 5241265e30c35da4f925bb6297c4dee5, type: 3}
+    - {fileID: 7747448189475961003, guid: 11526f59edbb6b047b28334b7748b0ac, type: 3}
+    - {fileID: 6162600390927559845, guid: d307b0e8bdc0ada409820ef69a5f0f4c, type: 3}
+    - {fileID: 4706648538848286119, guid: e634cdb374a40f24bb7cbafea8c7be03, type: 3}
+    - {fileID: 7995404702411823366, guid: 83559a9e96c377c4db5405c651ff992b, type: 3}
+    - {fileID: 4860588922505850286, guid: c5b67ef2b62922346b76ccccaef65730, type: 3}
+    - {fileID: 8920465474144786315, guid: a0673dbfe0e78584ab501f0b7513baba, type: 3}
+    SkyboxMaterial: {fileID: 2100000, guid: aea951fb80e12604bbbb4b2277e169aa, type: 2}
   - StateName: State4
     Curvature: 100
     HorizonWaveFrequency: 10
-    MovementSpeed: 7
+    MovementSpeed: 8
+    TimeBetweenCollectableSpawns: 3
+    TimeBetweenObstacleSpawns: 1.5
+    Collectable: {fileID: 7245491266388409435, guid: 3075708f352e0f943a6761e9cdfe51b3, type: 3}
+    Obstacles:
+    - {fileID: 4951570777349927826, guid: 86c7447b418abf742a05aaa2dbec3a0f, type: 3}
+    - {fileID: 5909878535249840774, guid: a6cb058054f4e104f859fdd82218245b, type: 3}
+    - {fileID: 1046677138985379208, guid: 077fa51ed12c0d74ba24e27289dd0258, type: 3}
+    - {fileID: 833750089512020418, guid: 5241265e30c35da4f925bb6297c4dee5, type: 3}
+    - {fileID: 7747448189475961003, guid: 11526f59edbb6b047b28334b7748b0ac, type: 3}
+    - {fileID: 6162600390927559845, guid: d307b0e8bdc0ada409820ef69a5f0f4c, type: 3}
+    - {fileID: 4706648538848286119, guid: e634cdb374a40f24bb7cbafea8c7be03, type: 3}
+    - {fileID: 7995404702411823366, guid: 83559a9e96c377c4db5405c651ff992b, type: 3}
+    - {fileID: 4860588922505850286, guid: c5b67ef2b62922346b76ccccaef65730, type: 3}
+    - {fileID: 8920465474144786315, guid: a0673dbfe0e78584ab501f0b7513baba, type: 3}
+    SkyboxMaterial: {fileID: 2100000, guid: be37644be96174c4f949dcd232d7962f, type: 2}
   - StateName: State5
     Curvature: -100
     HorizonWaveFrequency: 10
-    MovementSpeed: 7
+    MovementSpeed: 8
+    TimeBetweenCollectableSpawns: 2
+    TimeBetweenObstacleSpawns: 1.4
+    Collectable: {fileID: 7245491266388409435, guid: 3075708f352e0f943a6761e9cdfe51b3, type: 3}
+    Obstacles:
+    - {fileID: 843783528766330773, guid: ed4eb81097a29e84ca8f9754742dae60, type: 3}
+    - {fileID: 4096549064635288152, guid: 62366f8cdb7bdd0428b3e4923f518fa6, type: 3}
+    - {fileID: 2741778493902628433, guid: 43c93898352b15549bd7b8b8b9ebafe2, type: 3}
+    - {fileID: 1510862533418366915, guid: 948f1a47f084fb04dbb34525640cd1b5, type: 3}
+    - {fileID: 910144729958065329, guid: 00601132bb84485408c0e4692bdb76e2, type: 3}
+    - {fileID: 4951570777349927826, guid: 86c7447b418abf742a05aaa2dbec3a0f, type: 3}
+    - {fileID: 5909878535249840774, guid: a6cb058054f4e104f859fdd82218245b, type: 3}
+    - {fileID: 1046677138985379208, guid: 077fa51ed12c0d74ba24e27289dd0258, type: 3}
+    - {fileID: 833750089512020418, guid: 5241265e30c35da4f925bb6297c4dee5, type: 3}
+    - {fileID: 7747448189475961003, guid: 11526f59edbb6b047b28334b7748b0ac, type: 3}
+    - {fileID: 6162600390927559845, guid: d307b0e8bdc0ada409820ef69a5f0f4c, type: 3}
+    - {fileID: 4706648538848286119, guid: e634cdb374a40f24bb7cbafea8c7be03, type: 3}
+    - {fileID: 7995404702411823366, guid: 83559a9e96c377c4db5405c651ff992b, type: 3}
+    - {fileID: 4860588922505850286, guid: c5b67ef2b62922346b76ccccaef65730, type: 3}
+    - {fileID: 8920465474144786315, guid: a0673dbfe0e78584ab501f0b7513baba, type: 3}
+    SkyboxMaterial: {fileID: 2100000, guid: d094a9ad8a48d614fa970b56155212e8, type: 2}
   - StateName: State6
     Curvature: 200
     HorizonWaveFrequency: 12
-    MovementSpeed: 8
+    MovementSpeed: 9
+    TimeBetweenCollectableSpawns: 2
+    TimeBetweenObstacleSpawns: 1.3
+    Collectable: {fileID: 7245491266388409435, guid: 3075708f352e0f943a6761e9cdfe51b3, type: 3}
+    Obstacles:
+    - {fileID: 843783528766330773, guid: ed4eb81097a29e84ca8f9754742dae60, type: 3}
+    - {fileID: 4096549064635288152, guid: 62366f8cdb7bdd0428b3e4923f518fa6, type: 3}
+    - {fileID: 2741778493902628433, guid: 43c93898352b15549bd7b8b8b9ebafe2, type: 3}
+    - {fileID: 1510862533418366915, guid: 948f1a47f084fb04dbb34525640cd1b5, type: 3}
+    - {fileID: 910144729958065329, guid: 00601132bb84485408c0e4692bdb76e2, type: 3}
+    - {fileID: 4951570777349927826, guid: 86c7447b418abf742a05aaa2dbec3a0f, type: 3}
+    - {fileID: 5909878535249840774, guid: a6cb058054f4e104f859fdd82218245b, type: 3}
+    - {fileID: 1046677138985379208, guid: 077fa51ed12c0d74ba24e27289dd0258, type: 3}
+    - {fileID: 833750089512020418, guid: 5241265e30c35da4f925bb6297c4dee5, type: 3}
+    - {fileID: 7747448189475961003, guid: 11526f59edbb6b047b28334b7748b0ac, type: 3}
+    - {fileID: 6162600390927559845, guid: d307b0e8bdc0ada409820ef69a5f0f4c, type: 3}
+    - {fileID: 4706648538848286119, guid: e634cdb374a40f24bb7cbafea8c7be03, type: 3}
+    - {fileID: 7995404702411823366, guid: 83559a9e96c377c4db5405c651ff992b, type: 3}
+    - {fileID: 4860588922505850286, guid: c5b67ef2b62922346b76ccccaef65730, type: 3}
+    - {fileID: 8920465474144786315, guid: a0673dbfe0e78584ab501f0b7513baba, type: 3}
+    SkyboxMaterial: {fileID: 2100000, guid: b7a1334bb84fcce48883dd042609f8bf, type: 2}
   - StateName: State7
     Curvature: -200
     HorizonWaveFrequency: 20
-    MovementSpeed: 10
+    MovementSpeed: 11
+    TimeBetweenCollectableSpawns: 2
+    TimeBetweenObstacleSpawns: 1.2
+    Collectable: {fileID: 7245491266388409435, guid: 3075708f352e0f943a6761e9cdfe51b3, type: 3}
+    Obstacles:
+    - {fileID: 843783528766330773, guid: ed4eb81097a29e84ca8f9754742dae60, type: 3}
+    - {fileID: 4096549064635288152, guid: 62366f8cdb7bdd0428b3e4923f518fa6, type: 3}
+    - {fileID: 2741778493902628433, guid: 43c93898352b15549bd7b8b8b9ebafe2, type: 3}
+    - {fileID: 1510862533418366915, guid: 948f1a47f084fb04dbb34525640cd1b5, type: 3}
+    - {fileID: 910144729958065329, guid: 00601132bb84485408c0e4692bdb76e2, type: 3}
+    - {fileID: 4951570777349927826, guid: 86c7447b418abf742a05aaa2dbec3a0f, type: 3}
+    - {fileID: 5909878535249840774, guid: a6cb058054f4e104f859fdd82218245b, type: 3}
+    - {fileID: 1046677138985379208, guid: 077fa51ed12c0d74ba24e27289dd0258, type: 3}
+    - {fileID: 833750089512020418, guid: 5241265e30c35da4f925bb6297c4dee5, type: 3}
+    - {fileID: 7747448189475961003, guid: 11526f59edbb6b047b28334b7748b0ac, type: 3}
+    - {fileID: 6162600390927559845, guid: d307b0e8bdc0ada409820ef69a5f0f4c, type: 3}
+    - {fileID: 4706648538848286119, guid: e634cdb374a40f24bb7cbafea8c7be03, type: 3}
+    - {fileID: 7995404702411823366, guid: 83559a9e96c377c4db5405c651ff992b, type: 3}
+    - {fileID: 4860588922505850286, guid: c5b67ef2b62922346b76ccccaef65730, type: 3}
+    - {fileID: 8920465474144786315, guid: a0673dbfe0e78584ab501f0b7513baba, type: 3}
+    SkyboxMaterial: {fileID: 2100000, guid: 7b479bf700f1c8543b6fbe67dd371e26, type: 2}
+  timeBetweenScenarySpawn: 0.5
