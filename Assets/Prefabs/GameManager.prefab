@@ -83,3 +83,7 @@ MonoBehaviour:
     Curvature: 200
     HorizonWaveFrequency: 12
     MovementSpeed: 8
+  - StateName: State7
+    Curvature: -200
+    HorizonWaveFrequency: 20
+    MovementSpeed: 10
