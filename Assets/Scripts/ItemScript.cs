@@ -4,17 +4,32 @@ using UnityEngine;
 
 public class ItemScript : MonoBehaviour
 {
-    float movementSpeed;
+    [HideInInspector] public float movementSpeed;
     GroundMovement groundMovement;
+    [SerializeField] public bool independentSpeed = false;
+    [SerializeField] ParticleSystem deathParticles;
 
     bool triggered = false;
+    bool playerDead = false;
+
+    private void Start() {
+        PlayerManager.Instance.onDeath.AddListener(delegate {playerDead=true;});
+    }
+
+    private void OnDisable() {
+        PlayerManager.Instance.onDeath.RemoveListener(delegate {playerDead=true;});
+    }
 
     private void Awake() {
         groundMovement = FindObjectOfType<GroundMovement>();
         Destroy(gameObject,10);
     }
     private void Update() {
-        movementSpeed = groundMovement.movementSpeed;
+        if(playerDead){return;}
+        if(!independentSpeed){
+            movementSpeed = groundMovement.movementSpeed;
+        }
+
         transform.position += new Vector3(2 * movementSpeed * Time.deltaTime, 0, 0);
     }
     private void OnCollisionEnter(Collision other) {
@@ -23,6 +38,10 @@ public class ItemScript : MonoBehaviour
             if(other.gameObject.TryGetComponent(out PlayerManager playerManager)){
                 playerManager.LoseHealth();
             }
+            Instantiate(deathParticles,transform.position,Quaternion.Euler(-45,90,0));
+            // Play Audio here
+            //AudioSource.PlayClipAtPoint(deathClip, transform.position);
+            Destroy(gameObject);
         }
     }
 }

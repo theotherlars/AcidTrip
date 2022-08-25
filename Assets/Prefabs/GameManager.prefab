@@ -68,7 +68,7 @@ MonoBehaviour:
   - StateName: State0
     Curvature: 30
     HorizonWaveFrequency: 0
-    MovementSpeed: 4
+    MovementSpeed: 6
     TimeBetweenCollectableSpawns: 3
     TimeBetweenObstacleSpawns: 2
     Collectable: {fileID: 7245491266388409435, guid: 3075708f352e0f943a6761e9cdfe51b3, type: 3}
@@ -79,10 +79,11 @@ MonoBehaviour:
     - {fileID: 1510862533418366915, guid: 948f1a47f084fb04dbb34525640cd1b5, type: 3}
     - {fileID: 910144729958065329, guid: 00601132bb84485408c0e4692bdb76e2, type: 3}
     SkyboxMaterial: {fileID: 2100000, guid: 85b102caf2a5e0a4f8f9e38b3acc2b7d, type: 2}
+    SkyboxRotationSpeed: 0
   - StateName: State1
     Curvature: 75
     HorizonWaveFrequency: 2
-    MovementSpeed: 5
+    MovementSpeed: 6
     TimeBetweenCollectableSpawns: 3
     TimeBetweenObstacleSpawns: 1.9
     Collectable: {fileID: 7245491266388409435, guid: 3075708f352e0f943a6761e9cdfe51b3, type: 3}
@@ -93,10 +94,11 @@ MonoBehaviour:
     - {fileID: 833750089512020418, guid: 5241265e30c35da4f925bb6297c4dee5, type: 3}
     - {fileID: 7747448189475961003, guid: 11526f59edbb6b047b28334b7748b0ac, type: 3}
     SkyboxMaterial: {fileID: 2100000, guid: 0e0052104351b7c46965e2c810d1df46, type: 2}
+    SkyboxRotationSpeed: 20
   - StateName: State2
     Curvature: -75
     HorizonWaveFrequency: 3
-    MovementSpeed: 6
+    MovementSpeed: 7
     TimeBetweenCollectableSpawns: 3
     TimeBetweenObstacleSpawns: 1.7
     Collectable: {fileID: 7245491266388409435, guid: 3075708f352e0f943a6761e9cdfe51b3, type: 3}
@@ -106,11 +108,12 @@ MonoBehaviour:
     - {fileID: 7995404702411823366, guid: 83559a9e96c377c4db5405c651ff992b, type: 3}
     - {fileID: 4860588922505850286, guid: c5b67ef2b62922346b76ccccaef65730, type: 3}
     - {fileID: 8920465474144786315, guid: a0673dbfe0e78584ab501f0b7513baba, type: 3}
-    SkyboxMaterial: {fileID: 2100000, guid: 5f0805d37aba4bb44a30eeb5ee2e52c7, type: 2}
+    SkyboxMaterial: {fileID: 2100000, guid: 810310092c1fb6d4da22ff713a01024d, type: 2}
+    SkyboxRotationSpeed: 10
   - StateName: State3
     Curvature: 150
     HorizonWaveFrequency: 4
-    MovementSpeed: 7
+    MovementSpeed: 8
     TimeBetweenCollectableSpawns: 3
     TimeBetweenObstacleSpawns: 1.6
     Collectable: {fileID: 7245491266388409435, guid: 3075708f352e0f943a6761e9cdfe51b3, type: 3}
@@ -125,7 +128,8 @@ MonoBehaviour:
     - {fileID: 7995404702411823366, guid: 83559a9e96c377c4db5405c651ff992b, type: 3}
     - {fileID: 4860588922505850286, guid: c5b67ef2b62922346b76ccccaef65730, type: 3}
     - {fileID: 8920465474144786315, guid: a0673dbfe0e78584ab501f0b7513baba, type: 3}
-    SkyboxMaterial: {fileID: 2100000, guid: aea951fb80e12604bbbb4b2277e169aa, type: 2}
+    SkyboxMaterial: {fileID: 2100000, guid: 5d039cba7c9aefa4b8ca1af2cd478769, type: 2}
+    SkyboxRotationSpeed: 20
   - StateName: State4
     Curvature: 100
     HorizonWaveFrequency: 10
@@ -144,11 +148,12 @@ MonoBehaviour:
     - {fileID: 7995404702411823366, guid: 83559a9e96c377c4db5405c651ff992b, type: 3}
     - {fileID: 4860588922505850286, guid: c5b67ef2b62922346b76ccccaef65730, type: 3}
     - {fileID: 8920465474144786315, guid: a0673dbfe0e78584ab501f0b7513baba, type: 3}
-    SkyboxMaterial: {fileID: 2100000, guid: be37644be96174c4f949dcd232d7962f, type: 2}
+    SkyboxMaterial: {fileID: 2100000, guid: 808d26f7b879fd445bba85b2d8e31062, type: 2}
+    SkyboxRotationSpeed: 15
   - StateName: State5
     Curvature: -100
     HorizonWaveFrequency: 10
-    MovementSpeed: 8
+    MovementSpeed: 9
     TimeBetweenCollectableSpawns: 2
     TimeBetweenObstacleSpawns: 1.4
     Collectable: {fileID: 7245491266388409435, guid: 3075708f352e0f943a6761e9cdfe51b3, type: 3}
@@ -168,11 +173,12 @@ MonoBehaviour:
     - {fileID: 7995404702411823366, guid: 83559a9e96c377c4db5405c651ff992b, type: 3}
     - {fileID: 4860588922505850286, guid: c5b67ef2b62922346b76ccccaef65730, type: 3}
     - {fileID: 8920465474144786315, guid: a0673dbfe0e78584ab501f0b7513baba, type: 3}
-    SkyboxMaterial: {fileID: 2100000, guid: d094a9ad8a48d614fa970b56155212e8, type: 2}
+    SkyboxMaterial: {fileID: 2100000, guid: 917234c94f17acf46956d4d5e793939a, type: 2}
+    SkyboxRotationSpeed: 10
   - StateName: State6
     Curvature: 200
     HorizonWaveFrequency: 12
-    MovementSpeed: 9
+    MovementSpeed: 10
     TimeBetweenCollectableSpawns: 2
     TimeBetweenObstacleSpawns: 1.3
     Collectable: {fileID: 7245491266388409435, guid: 3075708f352e0f943a6761e9cdfe51b3, type: 3}
@@ -192,7 +198,8 @@ MonoBehaviour:
     - {fileID: 7995404702411823366, guid: 83559a9e96c377c4db5405c651ff992b, type: 3}
     - {fileID: 4860588922505850286, guid: c5b67ef2b62922346b76ccccaef65730, type: 3}
     - {fileID: 8920465474144786315, guid: a0673dbfe0e78584ab501f0b7513baba, type: 3}
-    SkyboxMaterial: {fileID: 2100000, guid: b7a1334bb84fcce48883dd042609f8bf, type: 2}
+    SkyboxMaterial: {fileID: 2100000, guid: a76ae4063855b2d49890d860fd6d5949, type: 2}
+    SkyboxRotationSpeed: 20
   - StateName: State7
     Curvature: -200
     HorizonWaveFrequency: 20
@@ -216,5 +223,6 @@ MonoBehaviour:
     - {fileID: 7995404702411823366, guid: 83559a9e96c377c4db5405c651ff992b, type: 3}
     - {fileID: 4860588922505850286, guid: c5b67ef2b62922346b76ccccaef65730, type: 3}
     - {fileID: 8920465474144786315, guid: a0673dbfe0e78584ab501f0b7513baba, type: 3}
-    SkyboxMaterial: {fileID: 2100000, guid: 7b479bf700f1c8543b6fbe67dd371e26, type: 2}
+    SkyboxMaterial: {fileID: 2100000, guid: e59cee12c769ce24aae2467b0107ce7b, type: 2}
+    SkyboxRotationSpeed: 30
   timeBetweenScenarySpawn: 0.5

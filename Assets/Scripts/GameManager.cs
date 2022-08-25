@@ -20,15 +20,23 @@ public class GameManager : MonoBehaviour
     BendControllerRadial bendController;
     ScoreManager scoreManager;
 
+    bool playerDead = false;
+
     private void Start() {
+        PlayerManager.Instance.onDeath.AddListener(delegate {playerDead=true;});
         bendController = FindObjectOfType<BendControllerRadial>();
         groundMovement = FindObjectOfType<GroundMovement>();
         scoreManager = FindObjectOfType<Canvas>().GetComponent<ScoreManager>();
         currentTripState = tripStates[0];
         bendController.HorizonWaves = true;
     }
+    
+    private void OnDisable() {
+        PlayerManager.Instance.onDeath.RemoveListener(delegate {playerDead=true;});
+    }
 
     private void Update() {
+        if(playerDead){return;}
         trippiness = (float)scoreManager.score / 100;
         SetTrippiness(trippiness);
         UpdateTripValues();
@@ -56,18 +64,16 @@ public class GameManager : MonoBehaviour
         timeSinceLastCollectableSpawn += Time.deltaTime;
         timeSinceLastObstacleSpawn += Time.deltaTime;
         timeSinceLastScenarySpawn += Time.deltaTime;
-
-        // tripStateLastFrame = currentTripState;
     }
 
     private void SpawnScenary(){
         int randomIndex = Random.Range(0,currentTripState.Obstacles.Count);
-        Vector3 pos = new Vector3(Random.Range(-50,-60),0f,0);
+        Vector3 pos = new Vector3(Random.Range(-90.0f,-100.0f),0f,0.0f);
         if(Random.value > 0.5f){
-            pos.z = Random.Range(-10, -15);
+            pos.z = Random.Range(-10.0f, -40.0f);
         }
         else{
-            pos.z = Random.Range(10, 15);
+            pos.z = Random.Range(10.0f, 40.0f);
         }
         Instantiate(currentTripState.Obstacles[randomIndex],pos,Quaternion.identity);
     }
@@ -108,17 +114,19 @@ public class GameManager : MonoBehaviour
         timeBetweenCollectableSpawns = currentTripState.TimeBetweenCollectableSpawns;
         timeBetweenObstacleSpawns = currentTripState.TimeBetweenObstacleSpawns;
         RenderSettings.skybox = currentTripState.SkyboxMaterial;
+        Material skyMat = currentTripState.SkyboxMaterial;
+        skyMat.SetFloat("_Rotation", skyMat.GetFloat("_Rotation") + currentTripState.SkyboxRotationSpeed * Time.deltaTime);
         
     }
 
     private void SpawnCollectables(){
-        Vector3 pos = new Vector3(Random.Range(-20,-35),0.6f,Random.Range(-6,6));
+        Vector3 pos = new Vector3(Random.Range(-90.0f,-100.0f),2f,Random.Range(-6.0f,6.0f));
         Instantiate(currentTripState.Collectable,pos,Quaternion.identity);
     }
 
     private void SpawnObstacles(){
         int randomIndex = Random.Range(0,currentTripState.Obstacles.Count);
-        Vector3 pos = new Vector3(Random.Range(-50,-60),0f,Random.Range(-6,6));
+        Vector3 pos = new Vector3(Random.Range(-90.0f,-100.0f),0f,Random.Range(-6.0f,6.0f));
         Instantiate(currentTripState.Obstacles[randomIndex],pos,Quaternion.identity);
     }
 }
@@ -134,12 +142,14 @@ public class TripState{
     public GameObject Collectable;
     public List<GameObject> Obstacles = new List<GameObject>();
     public Material SkyboxMaterial;
+    public float SkyboxRotationSpeed;
 
-    public TripState(string _StateName, float _Curvature, float _HorizonWaveFrequency, float _MovementSpeed, GameObject _Collectable, List<GameObject> _Obstacles,Material _SkyboxMaterial, float _TimeBetweenCollectableSpawns = 3.0f,float _TimeBetweenObstacleSpawns = 1.5f){
+    public TripState(string _StateName, float _Curvature, float _HorizonWaveFrequency, float _SkyboxRotationSpeed, float _MovementSpeed, GameObject _Collectable, List<GameObject> _Obstacles,Material _SkyboxMaterial, float _TimeBetweenCollectableSpawns = 3.0f,float _TimeBetweenObstacleSpawns = 1.5f){
         this.StateName = _StateName;
         this.Curvature = _Curvature;
         this.HorizonWaveFrequency = _HorizonWaveFrequency;
         this.MovementSpeed = _MovementSpeed;
+        this.SkyboxRotationSpeed = _SkyboxRotationSpeed;
         this.TimeBetweenCollectableSpawns = _TimeBetweenCollectableSpawns;
         this.TimeBetweenObstacleSpawns = _TimeBetweenObstacleSpawns;
         this.Collectable = _Collectable;

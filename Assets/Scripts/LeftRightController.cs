@@ -10,25 +10,39 @@ public class LeftRightController : MonoBehaviour
     private Rigidbody rb;
     Rigidbody m_Rigidbody;
     public float Speed = 5f;
-
+    [SerializeField]float lockToXPosition;
     public BoxCollider playerCollider;
     public LayerMask whatIsGround;
-
+    private Vector3 movementOffSet;
+    bool playerDead = false;
     private void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
         //m_Rigidbody.freezeRotation = true;
         rb = GetComponent<Rigidbody>();
+        PlayerManager.Instance.onDeath.AddListener(delegate {playerDead=true;});
+    }
+
+    private void OnDisable() {
+        PlayerManager.Instance.onDeath.RemoveListener(delegate {playerDead=true;});
     }
 
     
 
     void Update()
     {
+        if(playerDead){return;}
         float h = Input.GetAxisRaw("Horizontal");
         
-        m_Rigidbody.velocity = new Vector3(m_Rigidbody.velocity.x, m_Rigidbody.velocity.y, h * Speed);
         // rb.position = new Vector3(0,0, rb.position.z + h * Speed * Time.deltaTime);
+
+        // if(transform.position.z != lockToXPosition){
+        //     movementOffSet.z = (lockToXPosition - transform.position.z) * 0.1f;
+        // }
+        transform.position = new Vector3(0, transform.position.y, transform.position.z);
+        // m_Rigidbody.MovePosition(movementOffSet);
+        m_Rigidbody.velocity = new Vector3(0, m_Rigidbody.velocity.y, h * Speed);
+        
 
         Jump();
     }
