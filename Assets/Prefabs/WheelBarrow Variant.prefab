@@ -25,11 +25,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b7924182e7bbb964985bcf5472c20a77, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0099683
+      value: 2.84
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b7924182e7bbb964985bcf5472c20a77, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.72
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b7924182e7bbb964985bcf5472c20a77, type: 3}
       propertyPath: m_LocalPosition.z
@@ -41,15 +41,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b7924182e7bbb964985bcf5472c20a77, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b7924182e7bbb964985bcf5472c20a77, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b7924182e7bbb964985bcf5472c20a77, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b7924182e7bbb964985bcf5472c20a77, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -66,6 +66,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b7924182e7bbb964985bcf5472c20a77, type: 3}
       propertyPath: m_Name
       value: WheelBarrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b7924182e7bbb964985bcf5472c20a77, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7924182e7bbb964985bcf5472c20a77, type: 3}
@@ -88,7 +92,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 96
   m_CollisionDetection: 0
 --- !u!65 &1178649121
 BoxCollider:
@@ -115,4 +119,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: babb5ab742b25ae47abd57a53bb18a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpForce: 6
   Speed: 10
+  playerCollider: {fileID: 1178649121}
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &1178649127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8494578988705273162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9554f795eb563eb4e9421268db98d77a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMaxHealth: 3
+  playerHealth: 2
