@@ -74,6 +74,6 @@ public class BendControllerRadial : MonoBehaviour
 	private void OnDisable()
 	{
 		Shader.SetGlobalVector(m_curveOriginId, Vector3.zero);
-		Shader.SetGlobalFloat(m_curvatureId, 0.0f);
+		Shader.SetGlobalFloat(m_curvatureId, 0);
 	}
 }
