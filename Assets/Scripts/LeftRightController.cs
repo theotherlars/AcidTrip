@@ -47,10 +47,10 @@ public class LeftRightController : MonoBehaviour
         // float newXrot = Mathf.Lerp(wheelBarrow.localEulerAngles.z, maxWheelbarrowRot * h, Time.deltaTime);
         // transform.localEulerAngles = new Vector3 (wheelBarrow.localEulerAngles.x, wheelBarrow.localEulerAngles.y, Mathf.Clamp(newXrot,-22,22));
         
-        Vector3 dir = target.position - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(dir);
-        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        // Vector3 dir = target.position - transform.position;
+        // Quaternion lookRotation = Quaternion.LookRotation(dir);
+        // Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+        // partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
         
         transform.position = new Vector3(0, transform.position.y, transform.position.z);
         // m_Rigidbody.MovePosition(movementOffSet);
