@@ -15,6 +15,10 @@ public class LeftRightController : MonoBehaviour
     public LayerMask whatIsGround;
     private Vector3 movementOffSet;
     bool playerDead = false;
+    public Transform wheelBarrow;
+    public float maxWheelbarrowRot;
+    public float rotationSpeed;
+
     private void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
@@ -39,6 +43,15 @@ public class LeftRightController : MonoBehaviour
         // if(transform.position.z != lockToXPosition){
         //     movementOffSet.z = (lockToXPosition - transform.position.z) * 0.1f;
         // }
+      
+        // float newXrot = Mathf.Lerp(wheelBarrow.localEulerAngles.z, maxWheelbarrowRot * h, Time.deltaTime);
+        // transform.localEulerAngles = new Vector3 (wheelBarrow.localEulerAngles.x, wheelBarrow.localEulerAngles.y, Mathf.Clamp(newXrot,-22,22));
+        
+        Vector3 dir = target.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(dir);
+        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+        partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        
         transform.position = new Vector3(0, transform.position.y, transform.position.z);
         // m_Rigidbody.MovePosition(movementOffSet);
         m_Rigidbody.velocity = new Vector3(0, m_Rigidbody.velocity.y, h * Speed);

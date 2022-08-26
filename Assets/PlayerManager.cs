@@ -16,7 +16,10 @@ public class PlayerManager : MonoBehaviour
     public UnityEvent onDeath;
     public ParticleSystem deathParticle;
     public GameObject friedEgg;
+    public AudioClip deathClip;
 
+    public List<AudioClip> footstepClips = new List<AudioClip>();
+    AudioSource audioSource;
     private void Awake() {
         if(instance == null){
             instance = this;
@@ -24,6 +27,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     private void Start() {
+        audioSource = GetComponent<AudioSource>();
         playerHealth = playerMaxHealth;
     }
 
@@ -40,13 +44,17 @@ public class PlayerManager : MonoBehaviour
         onGainHealth.Invoke();
     }
 
+    private void Footsteps(){
+        audioSource.PlayOneShot(footstepClips[Random.Range((int)0, footstepClips.Count)],0.1f);
+    }
+
     private void Died(){
         alive = false;
         onDeath.Invoke();
         Instantiate(deathParticle,transform.position,Quaternion.identity);
         Vector3 pos = transform.position;
-        pos.y += 1.5f;
         Instantiate(friedEgg, pos, Quaternion.identity);
+        AudioSource.PlayClipAtPoint(deathClip,transform.position,1.0f);
         Destroy(gameObject);
     }
 

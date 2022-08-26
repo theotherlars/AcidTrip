@@ -116,6 +116,7 @@ MonoBehaviour:
   movementSpeed: 0
   independentSpeed: 0
   deathParticles: {fileID: 3314559789573713374, guid: d66016ed882cddf4b9422b10677418ae, type: 3}
+  deathClip: {fileID: 8300000, guid: 54c52e764cc76074e85cc3c2dca840cb, type: 3}
 --- !u!65 &-2965328242755724663
 BoxCollider:
   m_ObjectHideFlags: 0

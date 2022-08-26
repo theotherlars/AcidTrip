@@ -36,7 +36,10 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update() {
-        if(playerDead){return;}
+        if(playerDead){
+            UpdateTripWhenDead();
+            return;
+        }
         trippiness = (float)scoreManager.score / 100;
         SetTrippiness(trippiness);
         UpdateTripValues();
@@ -75,7 +78,10 @@ public class GameManager : MonoBehaviour
         else{
             pos.z = Random.Range(10.0f, 40.0f);
         }
-        Instantiate(currentTripState.Obstacles[randomIndex],pos,Quaternion.identity);
+        Quaternion randomRot = Random.rotation;
+        randomRot.x = 0;
+        randomRot.z = 0;
+        Instantiate(currentTripState.Obstacles[randomIndex],pos,randomRot);
     }
 
     private void SetTrippiness(float newTrippiness){
@@ -116,7 +122,12 @@ public class GameManager : MonoBehaviour
         RenderSettings.skybox = currentTripState.SkyboxMaterial;
         Material skyMat = currentTripState.SkyboxMaterial;
         skyMat.SetFloat("_Rotation", skyMat.GetFloat("_Rotation") + currentTripState.SkyboxRotationSpeed * Time.deltaTime);
-        
+    }
+    private void UpdateTripWhenDead(){
+        bendController.Curvature = Mathf.Lerp(bendController.Curvature, 0, Time.deltaTime * transitionTime);
+        bendController.HorizonWaveFrequency = Mathf.Lerp(bendController.HorizonWaveFrequency, 0, Time.deltaTime * transitionTime);
+        Material skyMat = currentTripState.SkyboxMaterial;
+        skyMat.SetFloat("_Rotation", skyMat.GetFloat("_Rotation") + currentTripState.SkyboxRotationSpeed * Time.deltaTime);
     }
 
     private void SpawnCollectables(){
@@ -127,7 +138,10 @@ public class GameManager : MonoBehaviour
     private void SpawnObstacles(){
         int randomIndex = Random.Range(0,currentTripState.Obstacles.Count);
         Vector3 pos = new Vector3(Random.Range(-90.0f,-100.0f),0f,Random.Range(-6.0f,6.0f));
-        Instantiate(currentTripState.Obstacles[randomIndex],pos,Quaternion.identity);
+        Quaternion randomRot = Random.rotation;
+        randomRot.x = 0;
+        randomRot.z = 0;
+        Instantiate(currentTripState.Obstacles[randomIndex],pos,randomRot);
     }
 }
 

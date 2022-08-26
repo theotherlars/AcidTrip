@@ -8,6 +8,7 @@ public class ItemScript : MonoBehaviour
     GroundMovement groundMovement;
     [SerializeField] public bool independentSpeed = false;
     [SerializeField] ParticleSystem deathParticles;
+    [SerializeField] AudioClip deathClip;
 
     bool triggered = false;
     bool playerDead = false;
@@ -40,7 +41,9 @@ public class ItemScript : MonoBehaviour
             }
             Instantiate(deathParticles,transform.position,Quaternion.Euler(-45,90,0));
             // Play Audio here
-            //AudioSource.PlayClipAtPoint(deathClip, transform.position);
+            if(deathClip){
+                AudioSource.PlayClipAtPoint(deathClip, transform.position);
+            }
             Destroy(gameObject);
         }
     }
