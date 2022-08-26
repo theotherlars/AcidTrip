@@ -18,6 +18,7 @@ public class LeftRightController : MonoBehaviour
     public Transform wheelBarrow;
     public float maxWheelbarrowRot;
     public float rotationSpeed;
+    Transform target;
 
     private void Start()
     {
@@ -37,23 +38,17 @@ public class LeftRightController : MonoBehaviour
     {
         if(playerDead){return;}
         float h = Input.GetAxisRaw("Horizontal");
-        
-        // rb.position = new Vector3(0,0, rb.position.z + h * Speed * Time.deltaTime);
-
-        // if(transform.position.z != lockToXPosition){
-        //     movementOffSet.z = (lockToXPosition - transform.position.z) * 0.1f;
-        // }
-      
-        // float newXrot = Mathf.Lerp(wheelBarrow.localEulerAngles.z, maxWheelbarrowRot * h, Time.deltaTime);
-        // transform.localEulerAngles = new Vector3 (wheelBarrow.localEulerAngles.x, wheelBarrow.localEulerAngles.y, Mathf.Clamp(newXrot,-22,22));
-        
-        // Vector3 dir = target.position - transform.position;
-        // Quaternion lookRotation = Quaternion.LookRotation(dir);
-        // Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
-        // partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+        if(h > 0){
+            transform.eulerAngles = new Vector3(0,-90,Mathf.Lerp(transform.eulerAngles.z,10,rotationSpeed) * -1);        
+        }
+        else if(h < 0){
+            transform.eulerAngles = new Vector3(0,-90,Mathf.Lerp(transform.eulerAngles.z, 10,rotationSpeed));        
+        }
+        else{
+            transform.eulerAngles = new Vector3(0,-90,0);        
+        }
         
         transform.position = new Vector3(0, transform.position.y, transform.position.z);
-        // m_Rigidbody.MovePosition(movementOffSet);
         m_Rigidbody.velocity = new Vector3(0, m_Rigidbody.velocity.y, h * Speed);
         
 

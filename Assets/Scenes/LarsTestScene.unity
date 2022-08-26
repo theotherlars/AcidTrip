@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.59611076, g: 0.6094582, b: 0.55086917, a: 1}
+  m_IndirectSpecularColor: {r: 0.59625894, g: 0.60956866, b: 0.5510702, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 703249ccb31054345b783513954d1f04, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 25ee9787565ad4b4ca259fbdcf559a68, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1425,6 +1425,10 @@ PrefabInstance:
       value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 6254628246482415147, guid: 6cf428fa35bdad0458e44b6647b8dbf1, type: 3}
+      propertyPath: timeBetweenScenarySpawn
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254628246482415147, guid: 6cf428fa35bdad0458e44b6647b8dbf1, type: 3}
       propertyPath: MushRooms.Array.data[15]
       value: 
       objectReference: {fileID: 8131203268365300706, guid: 4acb4ae0d680d0d40bbd679b575d45a1, type: 3}
@@ -1450,35 +1454,35 @@ PrefabInstance:
       objectReference: {fileID: 8131203268365300706, guid: 4acb4ae0d680d0d40bbd679b575d45a1, type: 3}
     - target: {fileID: 6254628246482415147, guid: 6cf428fa35bdad0458e44b6647b8dbf1, type: 3}
       propertyPath: tripStates.Array.data[0].MovementSpeed
-      value: 8
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6254628246482415147, guid: 6cf428fa35bdad0458e44b6647b8dbf1, type: 3}
       propertyPath: tripStates.Array.data[1].MovementSpeed
-      value: 8
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6254628246482415147, guid: 6cf428fa35bdad0458e44b6647b8dbf1, type: 3}
       propertyPath: tripStates.Array.data[2].MovementSpeed
-      value: 9
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6254628246482415147, guid: 6cf428fa35bdad0458e44b6647b8dbf1, type: 3}
       propertyPath: tripStates.Array.data[3].MovementSpeed
-      value: 9
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 6254628246482415147, guid: 6cf428fa35bdad0458e44b6647b8dbf1, type: 3}
       propertyPath: tripStates.Array.data[4].MovementSpeed
-      value: 9
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 6254628246482415147, guid: 6cf428fa35bdad0458e44b6647b8dbf1, type: 3}
       propertyPath: tripStates.Array.data[5].MovementSpeed
-      value: 10
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6254628246482415147, guid: 6cf428fa35bdad0458e44b6647b8dbf1, type: 3}
       propertyPath: tripStates.Array.data[6].MovementSpeed
-      value: 11
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 6254628246482415147, guid: 6cf428fa35bdad0458e44b6647b8dbf1, type: 3}
       propertyPath: tripStates.Array.data[7].MovementSpeed
-      value: 12
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6254628246482415147, guid: 6cf428fa35bdad0458e44b6647b8dbf1, type: 3}
       propertyPath: tripStates.Array.data[0].SkyboxMaterial
@@ -1589,12 +1593,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8131203268365300706, guid: 4acb4ae0d680d0d40bbd679b575d45a1, type: 3}
     - target: {fileID: 6254628246482415147, guid: 6cf428fa35bdad0458e44b6647b8dbf1, type: 3}
+      propertyPath: tripStates.Array.data[0].TimeBetweenObstacleSpawns
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254628246482415147, guid: 6cf428fa35bdad0458e44b6647b8dbf1, type: 3}
       propertyPath: tripStates.Array.data[3].TimeBetweenObstacleSpawns
       value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6254628246482415147, guid: 6cf428fa35bdad0458e44b6647b8dbf1, type: 3}
+      propertyPath: tripStates.Array.data[0].TimeBetweenCollectableSpawns
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254628246482415147, guid: 6cf428fa35bdad0458e44b6647b8dbf1, type: 3}
+      propertyPath: tripStates.Array.data[1].TimeBetweenCollectableSpawns
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254628246482415147, guid: 6cf428fa35bdad0458e44b6647b8dbf1, type: 3}
       propertyPath: tripStates.Array.data[2].TimeBetweenCollectableSpawns
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6254628246482415147, guid: 6cf428fa35bdad0458e44b6647b8dbf1, type: 3}
       propertyPath: tripStates.Array.data[3].TimeBetweenCollectableSpawns
@@ -1602,11 +1618,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6254628246482415147, guid: 6cf428fa35bdad0458e44b6647b8dbf1, type: 3}
       propertyPath: tripStates.Array.data[4].TimeBetweenCollectableSpawns
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6254628246482415147, guid: 6cf428fa35bdad0458e44b6647b8dbf1, type: 3}
       propertyPath: tripStates.Array.data[5].TimeBetweenCollectableSpawns
-      value: 1.5
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254628246482415147, guid: 6cf428fa35bdad0458e44b6647b8dbf1, type: 3}
+      propertyPath: tripStates.Array.data[6].TimeBetweenCollectableSpawns
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6254628246482415147, guid: 6cf428fa35bdad0458e44b6647b8dbf1, type: 3}
+      propertyPath: tripStates.Array.data[7].TimeBetweenCollectableSpawns
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6254628246482415148, guid: 6cf428fa35bdad0458e44b6647b8dbf1, type: 3}
       propertyPath: m_RootOrder
@@ -3178,7 +3202,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 864f3dd1f03fe3d42971148fa6d66876, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.05
+  m_Volume: 0.01
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3409,7 +3433,7 @@ MonoBehaviour:
   - {fileID: 4597006418571454731, guid: 068025b74023c63468d27e50855f87e2, type: 3}
   amountToSpawn: 1
   randomScale: {x: 3, y: 5}
-  timeBetweenSpawns: 3
+  timeBetweenSpawns: 2
 --- !u!4 &1786997282
 Transform:
   m_ObjectHideFlags: 0
@@ -4266,6 +4290,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1207782316188091594, guid: 4dcd00e2dde6cc64e937b79529f58785, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889330645914083860, guid: 4dcd00e2dde6cc64e937b79529f58785, type: 3}
+      propertyPath: rotationSpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4922677574529615347, guid: 4dcd00e2dde6cc64e937b79529f58785, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4276,7 +4308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4922677574529615347, guid: 4dcd00e2dde6cc64e937b79529f58785, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.33
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 4922677574529615347, guid: 4dcd00e2dde6cc64e937b79529f58785, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4284,7 +4316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4922677574529615347, guid: 4dcd00e2dde6cc64e937b79529f58785, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.701718
       objectReference: {fileID: 0}
     - target: {fileID: 4922677574529615347, guid: 4dcd00e2dde6cc64e937b79529f58785, type: 3}
       propertyPath: m_LocalRotation.x
@@ -4292,7 +4324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4922677574529615347, guid: 4dcd00e2dde6cc64e937b79529f58785, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7071068
+      value: -0.7124548
       objectReference: {fileID: 0}
     - target: {fileID: 4922677574529615347, guid: 4dcd00e2dde6cc64e937b79529f58785, type: 3}
       propertyPath: m_LocalRotation.z
@@ -4304,15 +4336,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4922677574529615347, guid: 4dcd00e2dde6cc64e937b79529f58785, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
+      value: -90.87
       objectReference: {fileID: 0}
     - target: {fileID: 4922677574529615347, guid: 4dcd00e2dde6cc64e937b79529f58785, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4922677574529615347, guid: 4dcd00e2dde6cc64e937b79529f58785, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5700164599847771977, guid: 4dcd00e2dde6cc64e937b79529f58785, type: 3}
       propertyPath: m_Name
       value: Egg_W_WheelBarrow_runningAnim
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842396946891388629, guid: 4dcd00e2dde6cc64e937b79529f58785, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99374926
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842396946891388629, guid: 4dcd00e2dde6cc64e937b79529f58785, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.08191056
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842396946891388629, guid: 4dcd00e2dde6cc64e937b79529f58785, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.0062307687
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842396946891388629, guid: 4dcd00e2dde6cc64e937b79529f58785, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.07559248
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842396946891388629, guid: 4dcd00e2dde6cc64e937b79529f58785, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 9.424
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842396946891388629, guid: 4dcd00e2dde6cc64e937b79529f58785, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -8.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842396946891388629, guid: 4dcd00e2dde6cc64e937b79529f58785, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dcd00e2dde6cc64e937b79529f58785, type: 3}

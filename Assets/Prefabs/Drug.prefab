@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2589a9f86e35d498bb60c6035b9787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupClip: {fileID: 8300000, guid: f21de8c75ba722d489a3d6654c412af6, type: 3}
 --- !u!114 &4454820591951595940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0020d9e3eb7a3de4482046c2f71f2bca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0
+  independentSpeed: 0
 --- !u!1001 &4003189968503669903
 PrefabInstance:
   m_ObjectHideFlags: 0

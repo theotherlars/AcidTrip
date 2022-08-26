@@ -8,7 +8,7 @@ public class Collectibles : MonoBehaviour
 {
     public static event Action OnCollected;
     ScoreManager scoreManager;
-    
+    public AudioClip pickupClip;
     bool playerDead = false;
 
 
@@ -32,6 +32,7 @@ public class Collectibles : MonoBehaviour
         if (other.CompareTag("Player")){
             OnCollected?.Invoke();
             scoreManager.AddPoint();
+            AudioSource.PlayClipAtPoint(pickupClip, transform.position, 10.0f);
             Destroy(gameObject);
         }
     }
